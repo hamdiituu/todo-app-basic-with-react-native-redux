@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import Navigation from './navigation/Navigation'
+import {NavRoot} from './navigation'
 class App extends Component {
     render() {
         return (
-         <Navigation/>
+         <NavRoot/>
         )
     }
 }

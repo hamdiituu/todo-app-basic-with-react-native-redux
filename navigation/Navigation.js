@@ -4,11 +4,14 @@ import {NavigationContainer} from '@react-navigation/native';
 
 import {
     LoginScreen,
-    RegisterScreen
+    RegisterScreen,
+    MainScreen,
+    AddTodoScreen,
+    UpdateTodoScreen
 } from '../screens';
 
 
-const Stack = createStackNavigator();
+const MainStack = createStackNavigator();
 const AuthStack = createStackNavigator();
 
 
@@ -26,11 +29,37 @@ function AutNav(){
 
   )
 }
+
+function MainNav(){
+    return(
+  
+      <MainStack.Navigator 
+      screenOptions={{
+        headerShown: false
+      }}>
+           
+        <MainStack.Screen  name="main" component={MainScreen} /> 
+        <MainStack.Screen name="addtodo" component={AddTodoScreen} /> 
+        <MainStack.Screen name ="updatetodo" component={UpdateTodoScreen}/>
+      </MainStack.Navigator>
+  
+    )
+  }
+  
+
 class Navigation extends Component {
+    state={
+        login : true
+    }
     render() {
         return (
         <NavigationContainer>
-           <AutNav/>
+           {
+           
+           this.state.login ? <MainNav/> : <AutNav/>
+           
+           
+           }
         </NavigationContainer>
         )
     }

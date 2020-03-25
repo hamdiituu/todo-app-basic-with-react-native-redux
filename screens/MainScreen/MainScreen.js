@@ -14,8 +14,8 @@ class MainScreen extends Component {
                 </Text>
 
                 <Button
-                title="Login TO"
-                onPress={()=>this.props.navigation.navigate('Login')}
+                title="add to do"
+                onPress={()=>this.props.navigation.navigate('addtodo')}
                 />
 
             </View>

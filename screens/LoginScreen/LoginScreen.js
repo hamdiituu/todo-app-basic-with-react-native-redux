@@ -3,8 +3,9 @@ import {View,
         Text,
         Button 
     } from 'react-native'
-
-
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux'
+import {loginSuccess} from '../../redux/actions/LoginActions';
 
 
 class LoginScreen extends Component {
@@ -15,12 +16,18 @@ class LoginScreen extends Component {
                     Login Screen
                 </Text>
                 <Button
-                title="regiser"
-                onPress={() => this.props.navigation.navigate('register')}
+                title="Login Succes"
+                onPress={() => this.props.dispatch(loginSuccess())}
                 />
+      
             </View>
         )
     }
 }
-
-export default LoginScreen;
+function mapDispacthToProps(dispatch) {
+    return {
+      action: bindActionCreators(loginSuccess, dispatch)
+    };
+  }
+  
+export default  connect(mapDispacthToProps)(LoginScreen);
